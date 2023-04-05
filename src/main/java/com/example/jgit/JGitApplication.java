@@ -1,6 +1,8 @@
 package com.example.jgit;
 
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.transport.CredentialsProvider;
+import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -27,6 +29,7 @@ public class JGitApplication {
                     .setDirectory(file)
                     .setBranchesToClone(List.of("refs/heads/" + branch))
                     .setBranch("refs/heads/" + branch)
+                    //.setCredentialsProvider(new UsernamePasswordCredentialsProvider(login, password))
                     .call();
         } catch (Exception e) {
             e.printStackTrace();
